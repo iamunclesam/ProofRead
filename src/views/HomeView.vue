@@ -30,8 +30,8 @@ export default {
 
       <div class="grid md:grid-cols-2 gap-8">
         <div class="col order-2 md:order-1 text-center md:text-left" data-aos="fade-right" data-aos-duration="1000">
-          <h1 class="md:text-6xl text-4xl text-center">Welcome to ProofReaders</h1>
-          <p class="text-lg mt-6 line-clamp-3 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem unde maiores animi, sit
+          <h1 class="md:text-6xl text-4xl">Welcome to ProofReaders</h1>
+          <p class="md:text-lg text-md mt-6 line-clamp-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem unde maiores animi, sit
             eum aspernatur delectus voluptas. Sit dolor ea nisi temporibus, maxime magni corrupti cum aperiam aliquam
             commodi vero!</p>
 
