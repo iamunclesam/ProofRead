@@ -30,7 +30,7 @@ export default {
        </div>
       </div> -->
 
-      <div class="grid md:grid-cols-2 gap-8">
+      <div class="grid md:grid-cols-2 gap-8 overflow-hidden">
         <div class="col order-2 md:order-1 text-center md:text-left md:mt-8" data-aos="fade-right"
           data-aos-duration="1000">
           <h1 class="md:text-7xl text-4xl">Proof reading made easy!</h1>
@@ -51,7 +51,7 @@ export default {
 
     <div class="py-12 px-2">
       <div class="max-w-4xl mx-auto text-center">
-        <div class="md:flex md:justify-between justify-center items-center md:space-x-8 space-y-12">
+        <div class="md:flex md:justify-between justify-center items-center md:space-x-8 space-y-20">
           <!-- Achievement 1 -->
           <div class="flex flex-col items-center">
             <span class="md:text-5xl text-7xl font-semibold text-blue-600">10k+</span>
@@ -74,7 +74,7 @@ export default {
 
 
 
-    <div class="md:px-28 px-8 my-10">
+    <div class="md:px-28 px-8 my-10 overflow-hidden">
       <div class="grid md:grid-cols-2 gap-12">
         <div class="col order-2" data-aos="fade-right" data-aos-duration="1000">
           <img src="../assets/img/hero-svg.png" class="w-full" alt="" srcset="">
@@ -95,7 +95,7 @@ export default {
       </div>
     </div>
 
-    <div class="md:px-28 px-4 my-28 bg-blue-500">
+    <div class="md:px-28 px-4 my-28 bg-blue-500 overflow-hidden">
       <section class=" dark:bg-gray-900 mt-10" data-aos="fade-in" data-aos-duration="1000">
         <div class="py-8 px-4 mx-auto max-w-screen-xl sm:pt-16 lg:px-6">
           <div class="max-w-screen-md mb-8 lg:mb-16 text-center mx-auto">
@@ -142,7 +142,7 @@ export default {
     </div>
 
 
-    <section class="bg-white dark:bg-gray-900">
+    <section class="bg-white dark:bg-gray-900 ">
       <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-20">
         <div class="max-w-screen-md mb-8 lg:mb-16 text-center mx-auto">
           <h2 class="mb-2 md:text-xl text-md tracking-tight font-medium  dark:text-white">Lorem, ipsum dolor.</h2>
