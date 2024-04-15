@@ -14,7 +14,7 @@ export default {
 <template>
   <main>
 
-    <div class="hero md:p-20 px-4 mt-28">
+    <div class="hero h-screen md:h-screen md:p-20 px-4 mt-28">
       <Navbar class="z-50" />
       <!-- <div class="overlay"></div> 
       <div class="hero-text text-left">
@@ -42,7 +42,7 @@ export default {
           </button>
         </div>
 
-        <div class="col order-1 md:order-2" data-aos="fade-left" data-aos-duration="1000">
+        <div class="col order-1 md:order-2 pt-8" data-aos="fade-left" data-aos-duration="1000">
           <img src="../assets/img/hero-svg.png" class="w-full" alt="" srcset="">
         </div>
       </div>
@@ -54,17 +54,17 @@ export default {
         <div class="md:flex md:justify-between justify-center items-center md:space-x-8 space-y-12">
           <!-- Achievement 1 -->
           <div class="flex flex-col items-center">
-            <span class="text-5xl  font-semibold text-blue-600">10k+</span>
+            <span class="md:text-5xl text-7xl font-semibold text-blue-600">10k+</span>
             <span class="text-gray-600">Happy Users</span>
           </div>
           <!-- Achievement 2 -->
           <div class="flex flex-col items-center">
-            <span class="text-5xl font-semibold text-blue-600">500+</span>
+            <span class="md:text-5xl text-7xl font-semibold text-blue-600">500+</span>
             <span class="text-gray-600 ">Positive Reviews</span>
           </div>
           <!-- Achievement 3 -->
           <div class="flex flex-col items-center">
-            <span class="text-5xl font-semibold text-blue-600">500k+</span>
+            <span class="md:text-5xl text-7xl font-semibold text-blue-600">500k+</span>
             <span class="text-gray-600">Downloads</span>
           </div>
           <!-- Add more achievements as needed -->
@@ -75,12 +75,12 @@ export default {
 
 
     <div class="md:px-28 px-8 my-10">
-      <div class="md:grid md:grid-cols-2 gap-12">
-        <div class="col hidden md:block" data-aos="fade-right" data-aos-duration="1000">
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="col order-2" data-aos="fade-right" data-aos-duration="1000">
           <img src="../assets/img/hero-svg.png" class="w-full" alt="" srcset="">
         </div>
 
-        <div class="col pt-16" data-aos="fade-left" data-aos-duration="1000">
+        <div class="col order-1 pt-16" data-aos="fade-left" data-aos-duration="1000">
           <h1 class="text-xl text-blue-700">About Us</h1>
           <h1 class="md:text-6xl text-5xl">Lorem, ipsum dolor.</h1>
           <p class="text-gray-600 text-sm pt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto at
@@ -99,12 +99,14 @@ export default {
       <section class=" dark:bg-gray-900 mt-10" data-aos="fade-in" data-aos-duration="1000">
         <div class="py-8 px-4 mx-auto max-w-screen-xl sm:pt-16 lg:px-6">
           <div class="max-w-screen-md mb-8 lg:mb-16 text-center mx-auto">
-            <h2 class="mb-2 md:text-xl text-md tracking-tight font-medium text-white dark:text-white">Modified Solutions</h2>
+            <h2 class="mb-2 md:text-xl text-md tracking-tight font-medium text-white dark:text-white">Modified Solutions
+            </h2>
             <p class="bg-white h-1 rounded-full w-28 mx-auto mb-2"></p>
             <p class="text-white md:text-5xl text-4xl dark:text-gray-400">Lorem ipsum dolor sit amet</p>
           </div>
           <div class="space-y-8 md:my-20 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
-            <div class="text-center bg-white mx-auto py-8 pt-8 px-4 rounded" data-aos="fade-up" data-aos-duration="1000">
+            <div class="text-center bg-white mx-auto py-8 pt-8 px-4 rounded" data-aos="fade-up"
+              data-aos-duration="1000">
               <div
                 class="flex text-center mx-auto justify-center items-center bg-blue-500 rounded-full h-16 w-16 dark:bg-primary-900">
                 <Icon icon="cil:school" class="text-white text-5xl" />
@@ -142,10 +144,10 @@ export default {
 
     <section class="bg-white dark:bg-gray-900">
       <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-20">
-        <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
-          <h2 class="mb-2 text-xl tracking-tight font-medium dark:text-white">Pricing Designed for you</h2>
+        <div class="max-w-screen-md mb-8 lg:mb-16 text-center mx-auto">
+          <h2 class="mb-2 md:text-xl text-md tracking-tight font-medium  dark:text-white">Lorem, ipsum dolor.</h2>
           <p class="bg-blue-500 h-1 rounded-full w-28 mx-auto mb-2"></p>
-          <p class="text-5xl sm:text-md dark:text-gray-400">Lorem ipsum dolor sit amet</p>
+          <p class=" md:text-5xl text-4xl dark:text-gray-400">Lorem ipsum dolor sit amet</p>
         </div>
         <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
           <!-- Pricing Card -->
@@ -355,10 +357,10 @@ export default {
 
 
     <section class="bg-white dark:bg-gray-900 my-16">
-      <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
-        <h2 class="mb-2 text-xl tracking-tight font-medium dark:text-white">User's Experience </h2>
+      <div class="max-w-screen-md mb-8 lg:mb-16 text-center mx-auto">
+        <h2 class="mb-2 md:text-xl text-md tracking-tight font-medium  dark:text-white">Lorem, ipsum dolor.</h2>
         <p class="bg-blue-500 h-1 rounded-full w-28 mx-auto mb-2"></p>
-        <p class="text-5xl sm:text-md dark:text-gray-400">See what our customers say</p>
+        <p class=" md:text-5xl text-4xl dark:text-gray-400">Lorem ipsum dolor sit amet</p>
       </div>
       <div class="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-12 lg:px-6">
         <figure class="max-w-screen-md mx-auto">
