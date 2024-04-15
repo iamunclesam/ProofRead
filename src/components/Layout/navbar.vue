@@ -9,7 +9,7 @@
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
                     <!-- <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo"> -->
-                    <span class="self-center text-3xl font-medium whitespace-nowrap dark:text-white">Proof<span class="text-blue-700">Readers</span></span>
+                    <span class="self-center text-xl font-medium whitespace-nowrap dark:text-white">Proof<span class="text-blue-700">Readers</span></span>
                 </a>
                 <div class="md:flex md:gap-4 md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                     <div class="icon hidden md:flex md:gap-6 md:pr-5  border-r border-gray-300">
