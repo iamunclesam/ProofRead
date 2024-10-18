@@ -3,7 +3,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
             <!-- Left column with image -->
             <div class="relative">
-                <img src="https://img.freepik.com/free-photo/portrait-young-beautiful-woman-gesticulating_273609-40480.jpg?t=st=1728770795~exp=1728774395~hmac=7a3685f5b210e166bf4597d58e83b6cd7fa8308162352269e16fb197d36b32b2&w=996" alt="Why Choose Us Image"
+                <img src="../assets/img/why.jpg" alt="Why Choose Us Image"
                     class="w-full h-auto object-cover" />
                 <!-- Overlay on image for readability -->
                 <div class="absolute "></div>

@@ -14,7 +14,7 @@
                 <!-- Testimonial 1 -->
                 <div class="flex p-6 bg-white shadow-lg rounded-md items-center">
                     <!-- Image -->
-                    <img src="https://via.placeholder.com/100" alt="Dr. Jane Smith"
+                    <img src="../assets/img/test-1.jpg" alt="Dr. Jane Smith"
                         class="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover mr-4 flex-grow-1 border" />
 
                     <!-- Text Content -->
@@ -30,7 +30,7 @@
                 <!-- Testimonial 2 -->
                 <div class="flex p-6 bg-white shadow-lg rounded-md items-center">
                     <!-- Image -->
-                    <img src="https://via.placeholder.com/100" alt="John Doe"
+                    <img src="../assets/img/test-2.jpg" alt="John Doe"
                         class="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover mr-4" />
 
                     <!-- Text Content -->
