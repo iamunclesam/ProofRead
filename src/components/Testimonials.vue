@@ -31,7 +31,7 @@
                 <div class="flex p-6 bg-white shadow-lg rounded-md items-center">
                     <!-- Image -->
                     <img src="../assets/img/test-2.jpg" alt="John Doe"
-                        class="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover mr-4" />
+                        class="w-20 h-20 sm:w-24 sm:h-24 rounded-full flex-grow-1 object-cover mr-4" />
 
                     <!-- Text Content -->
                     <div>

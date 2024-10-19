@@ -8,12 +8,14 @@ import WhyChooseUs from '@/components/whyChooseUs.vue';
 import EditingProcess from '@/components/EditingProcess.vue';
 import Testimonials from '@/components/Testimonials.vue';
 import Trail from '@/components/Trail.vue';
+import ContactUs from '@/components/ContactUs.vue';
+
 
 
 
 export default {
   components: {
-    Navbar, Icon, footerVue, Collage, WhyChooseUs, EditingProcess, Testimonials, Trail
+    Navbar, Icon, footerVue, Collage, WhyChooseUs, EditingProcess, Testimonials, Trail, ContactUs
   },
 
 }
@@ -28,12 +30,12 @@ export default {
 
       <div class="text-center gap-8 bg-hero">
         <div class="text-center">
-          <img src="../assets/img/rb_81905.png" class="md:hidden" />
+          <img src="../assets/img/rb_81905.png" class="md:w-[400px] h-[400px] md:hidden" />
           <h1 class="md:text-8xl md:font-extrabold font-bold text-4xl">Welcome to <br /> <span
               class="text-blue-600">Acestyle</span>
             Editing
           </h1>
-          <p class="md:text-lg text-md mt-6 line-clamp-3 md:w-[800px] mx-auto">Lorem ipsum dolor sit amet, consectetur
+          <p class="md:text-lg text-md mt-6 line-clamp-3 lg:w-[800px] mx-auto">Lorem ipsum dolor sit amet, consectetur
             adipisicing elit. Hic
             laboriosam nisi, dolor, qui minima incidunt nam commodi facere eaque pariatur, voluptas dolores.</p>
 
@@ -48,8 +50,8 @@ export default {
       </div>
     </div>
 
-    <div class="md:px-28 px-4 my-10 h-screen flex items-center overflow-hidden">
-      <div class="grid md:grid-cols-2 items-center gap-12">
+    <div class="md:px-16  lg:px-28  px-4 my-10 h-screen flex items-center overflow-hidden">
+      <div class="grid lg:grid-cols-2 items-center gap-12">
         <div class="col order-2">
           <!-- <h1 class="text-xl text-blue-700">About Us</h1> -->
           <h1 class="md:text-6xl text-4xl">Transforming Your Words, Enhancing Your Voice</h1>
@@ -70,8 +72,8 @@ export default {
     </div>
 
 
-    <div class="md:px-28 px-4 my-10 flex items-center">
-      <div class="grid md:grid-cols-2 gap-12">
+    <div class="md:px-16 lg:px-28 px-4 my-10 flex items-center">
+      <div class="grid lg:grid-cols-2 gap-12">
         <div class="col">
           <Collage />
         </div>
@@ -93,7 +95,7 @@ export default {
       </div>
     </div>
 
-    <div class="">
+    <div class="mt-48">
       <WhyChooseUs />
     </div>
 
@@ -108,6 +110,9 @@ export default {
       <Testimonials />
     </div>
 
+    <div class="contact">
+      <ContactUs />
+    </div>
 
 
     <footerVue />

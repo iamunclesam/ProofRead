@@ -1,6 +1,6 @@
 <template>
-    <section class="md:max-w-8xl w-full mx-auto md:px-28 bg-white">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+    <section class="lg:max-w-8xl w-full mx-auto lg:px-28 bg-white">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
             <!-- Left column with image -->
             <div class="relative">
                 <img src="../assets/img/why.jpg" alt="Why Choose Us Image"
@@ -11,7 +11,7 @@
 
             <!-- Right column with text content overlapping the image -->
             <div class="col mt-4">
-                <div class="relative z-10 md:-ml-16 md:-ml-32 p-6 py-12 pt:-8 bg-white rounded-lg shadow-lg">
+                <div class="relative z-10 md:m-6 lg:m-0 md:-mt-16 lg:-ml-16 p-6 py-12 pt:-8 bg-white rounded-lg shadow-lg">
                     <h2 class="text-3xl font-bold text-gray-800 mb-8">Why Choose Us</h2>
                     <ul class="space-y-6">
                         <li class="flex items-start space-x-4">
