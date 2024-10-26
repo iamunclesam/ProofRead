@@ -79,7 +79,7 @@
                 </ul>
             </div>
             <div class="text-center">
-                <a href="#" title=""
+                <a href="/upload" title=""
                     class="inline-flex items-center justify-center px-10 py-4 mt-6 font-semibold text-white transition-all duration-200 rounded-md bg-gradient-to-r from-fuchsia-600 to-blue-600 focus:opacity-80 hover:opacity-80"
                     role="button"> Start Trial Now </a>
                 <p class="mt-4 text-sm text-gray-700">No Credit Card Required</p>

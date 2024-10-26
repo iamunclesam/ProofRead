@@ -46,7 +46,7 @@
                                 class="text-base font-semibold text-black transition-all duration-200 hover:text-opacity-80">
                                 Contact</a>
 
-                            <a href="#" title=""
+                            <a href="/upload" title=""
                                 class="inline-flex items-center justify-center px-5 py-2.5 text-base font-semibold transition-all duration-200 rounded-full bg-blue-600 text-white hover:bg-blue-700 focus:bg-blue-600"
                                 role="button">Upload Document</a>
                         </div>
@@ -110,10 +110,12 @@
                                             </div>
                                         </div> -->
 
-                                        <button type="submit"
-                                            class="inline-flex items-center justify-center w-full px-4 py-4 mt-4 font-semibold text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-full sm:w-auto sm:ml-0 sm:mt-0 hover:bg-orange-600 focus:bg-orange-600">
-                                            Upload Document
-                                        </button>
+                                        <a href="/upload"
+                                            class="inline-flex items-center justify-center w-full px-4 py-4 mt-4 font-semibold text-white transition-all duration-200 bg-blue-600 border border-transparent z-50 rounded-full sm:w-auto sm:ml-0 sm:mt-0 hover:bg-blue-600 focus:bg-blue-600">
+                                            Upload document
+                                        </a>
+
+
                                     </div>
                                 </div>
                             </form>
@@ -159,6 +161,8 @@
 </template>
 
 <script>
+// import { RouterLink } from 'vue-router';
+
 export default {
     data() {
         return {

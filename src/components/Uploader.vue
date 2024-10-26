@@ -1,6 +1,6 @@
 <template>
     <div class="max-w-6xl mx-auto">
-      
+
         <main class="flex flex-col md:flex-row justify-between p-10 py-4 gap-8 ">
 
             <!-- Left Side: Form for Document Upload -->
@@ -64,10 +64,10 @@
                             required />
                     </div>
 
-                    <!-- Progress Bar -->
+                    <!-- Progress Bar
                     <div v-if="uploadProgress > 0" class="col-span-2 w-full bg-gray-200 rounded-full h-6 mb-4">
                         <div :style="{ width: uploadProgress + '%' }" class="bg-blue-600 h-full rounded-full"></div>
-                    </div>
+                    </div> -->
 
                     <!-- Submit Button -->
                     <div class="col-span-2">
@@ -88,11 +88,13 @@
 
 </template>
 
+
 <script>
 import { storage, db } from '@/firebase';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { collection, addDoc } from 'firebase/firestore';
 import emailjs from 'emailjs-com';
+import { toast } from 'vue3-toastify';
 
 export default {
     data() {
@@ -165,13 +167,23 @@ export default {
                             timestamp: new Date(),
                         });
 
-                        // Send email using Email.js
-                        this.sendEmail(fullName, email, documentTitle, editingService, downloadURL);
+                        // Send email to the user
+                        await this.sendEmail(fullName, email, documentTitle, editingService, this.formData.additionalRequests, downloadURL);
 
-                        alert('Document uploaded successfully!');
+                        // Send email to the admin
+                        // await this.sendEmailToAdmin(fullName, documentTitle, editingService, downloadURL);
+
+                        toast.success("Document submitted successfully!", {
+                            autoClose: 1000,
+                            position: toast.POSITION.TOP_RIGHT,
+                        });
                         this.resetForm();
                     } catch (error) {
                         console.error('Error saving document to Firestore:', error);
+                        toast.warn("Something went wrong!", {
+                            autoClose: 1000,
+                            position: toast.POSITION.TOP_RIGHT,
+                        });
                     } finally {
                         this.isUploading = false;
                     }
@@ -179,21 +191,23 @@ export default {
             );
         },
 
-        async sendEmail(fullName, email, documentTitle, editingService, downloadURL) {
+        async sendEmail(fullName, email, documentTitle, editingService, additionalInfo, downloadURL) {
             const templateParams = {
                 to_name: fullName,
-                from_name: 'Your Company Name',
-                message: `A new document has been uploaded successfully.\n\nDetails:\n- Document Title: ${documentTitle}\n- Editing Service: ${editingService}\n- Download Link: ${downloadURL}`,
+                message: `A new document has been uploaded successfully.\n\nDetails:\n- Document Title: ${documentTitle}\n- Editing Service: ${editingService}\n- 
+                Additional Info: ${additionalInfo}\n-
+                Download Link: ${downloadURL}`,
                 reply_to: email,
             };
 
             try {
                 await emailjs.send('service_zcxbref', 'template_py6qafm', templateParams, 'jtE-tiuDnIEkR3Z2G');
-                console.log('Email sent successfully');
+                console.log('User email sent successfully');
             } catch (error) {
-                console.error('Error sending email:', error);
+                console.error('Error sending user email:', error);
             }
         },
+
 
         resetForm() {
             this.formData = {
