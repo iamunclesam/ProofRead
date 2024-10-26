@@ -11,12 +11,12 @@ import Trail from '@/components/Trail.vue';
 import ContactUs from '@/components/ContactUs.vue';
 import Pricing from '@/components/Pricing.vue';
 import Hero from '@/components/Hero.vue';
-
+import ScrollUp from '@/components/ScrollUp.vue';
 
 
 export default {
   components: {
-    Navbar, Icon, footerVue, Collage, WhyChooseUs, EditingProcess, Testimonials, Trail, ContactUs, Pricing, Hero
+    Navbar, Icon, footerVue, Collage, WhyChooseUs, EditingProcess, Testimonials, Trail, ContactUs, Pricing, Hero, ScrollUp
   },
 
 }
@@ -163,6 +163,7 @@ export default {
 
 
     <footerVue />
+    <ScrollUp />
 
   </main>
 </template>
