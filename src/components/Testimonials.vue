@@ -47,7 +47,7 @@
                         <div
                             class="flex flex-col flex-wrap items-center justify-center gap-1 mt-5 sm:flex-row sm:justify-start sm:gap-4">
                             <p class="text-base font-semibold text-gray-900">Jenny Wilson</p>
-                            <p class="text-base font-normal text-gray-600">Grower.io</p>
+                          
                         </div>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                         <div
                             class="flex flex-col flex-wrap items-center justify-center gap-1 mt-5 sm:flex-row sm:justify-start sm:gap-4">
                             <p class="text-base font-semibold text-gray-900">Devon Lane</p>
-                            <p class="text-base font-normal text-gray-600">DLDesign.co</p>
+                           
                         </div>
                     </div>
                 </div>
