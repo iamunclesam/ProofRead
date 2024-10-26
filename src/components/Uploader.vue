@@ -1,7 +1,7 @@
 <template>
     <div class="max-w-6xl mx-auto">
 
-        <main class="flex flex-col md:flex-row justify-between p-10 py-4 gap-8 ">
+        <main class="flex flex-col md:flex-row justify-between md:p-10 p-4 py-4 gap-8 ">
 
             <!-- Left Side: Form for Document Upload -->
             <section class="w-full md:w-1/2">
@@ -12,7 +12,7 @@
 
                 <form @submit.prevent="submitForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- Full Name Input -->
-                    <div class="col-span-1">
+                    <div class="md:col-span-1">
                         <label for="fullName" class="block text-gray-700">Full Name</label>
                         <input v-model="formData.fullName" type="text" id="fullName"
                             class="mt-1 block w-full border border-gray-300 rounded-lg p-2"
@@ -20,7 +20,7 @@
                     </div>
 
                     <!-- Email Input -->
-                    <div class="col-span-1">
+                    <div class="md:col-span-1">
                         <label for="email" class="block text-gray-700">Email</label>
                         <input v-model="formData.email" type="email" id="email"
                             class="mt-1 block w-full border border-gray-300 rounded-lg p-2"
@@ -28,7 +28,7 @@
                     </div>
 
                     <!-- Document Title Input -->
-                    <div class="col-span-1">
+                    <div class="md:col-span-1">
                         <label for="documentTitle" class="block text-gray-700">Document Title</label>
                         <input v-model="formData.documentTitle" type="text" id="documentTitle"
                             class="mt-1 block w-full border border-gray-300 rounded-lg p-2"
@@ -36,7 +36,7 @@
                     </div>
 
                     <!-- Desired Editing Service Dropdown -->
-                    <div class="col-span-1">
+                    <div class="md:col-span-1">
                         <label for="editingService" class="block text-gray-700">Desired Editing Service</label>
                         <select v-model="formData.editingService" id="editingService"
                             class="mt-1 block w-full border border-gray-300 rounded-lg p-2" required>
@@ -48,7 +48,7 @@
                     </div>
 
                     <!-- Additional Requests -->
-                    <div class="col-span-2">
+                    <div class="md:col-span-2">
                         <label for="additionalRequests" class="block text-gray-700">Additional Requests</label>
                         <textarea v-model="formData.additionalRequests" id="additionalRequests"
                             class="mt-1 block w-full border border-gray-300 rounded-lg p-2"
@@ -56,7 +56,7 @@
                     </div>
 
                     <!-- File Upload -->
-                    <div class="col-span-2">
+                    <div class="md:col-span-2">
                         <label for="documentFile" class="block text-gray-700">Upload Document (MS Word and PDF Formats
                             Only)</label>
                         <input type="file" @change="handleFileUpload" id="documentFile"
@@ -64,18 +64,14 @@
                             required />
                     </div>
 
-                    <!-- Progress Bar
-                    <div v-if="uploadProgress > 0" class="col-span-2 w-full bg-gray-200 rounded-full h-6 mb-4">
-                        <div :style="{ width: uploadProgress + '%' }" class="bg-blue-600 h-full rounded-full"></div>
-                    </div> -->
-
                     <!-- Submit Button -->
-                    <div class="col-span-2">
+                    <div class="md:col-span-2">
                         <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded" :disabled="isUploading">
                             {{ isUploading ? 'Uploading...' : 'Submit ($' + selectedPrice + ')' }}
                         </button>
                     </div>
                 </form>
+
             </section>
 
             <!-- Right Side: Illustration -->
@@ -108,10 +104,10 @@ export default {
                 documentFile: null,
             },
             editingServices: [
-                { name: 'Basic Editing', value: 'basic', price: 50 },
-                { name: 'Premium Editing', value: 'premium', price: 100 },
-                { name: 'Elite Editing', value: 'elite', price: 150 },
-                { name: 'One-off Editing', value: 'one-off', price: 200 },
+                { name: 'Basic Editing', value: 'basic', price: 500 },
+                { name: 'Premium Editing', value: 'premium', price: 1500 },
+                { name: 'Elite Editing', value: 'elite', price: 3000 },
+                { name: 'One-off Editing', value: 'one-off', price: "30/words " },
             ],
             uploadProgress: 0,
             isUploading: false,
