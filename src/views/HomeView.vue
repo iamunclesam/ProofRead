@@ -9,13 +9,14 @@ import EditingProcess from '@/components/EditingProcess.vue';
 import Testimonials from '@/components/Testimonials.vue';
 import Trail from '@/components/Trail.vue';
 import ContactUs from '@/components/ContactUs.vue';
-
+import Pricing from '@/components/Pricing.vue';
+import Hero from '@/components/Hero.vue';
 
 
 
 export default {
   components: {
-    Navbar, Icon, footerVue, Collage, WhyChooseUs, EditingProcess, Testimonials, Trail, ContactUs
+    Navbar, Icon, footerVue, Collage, WhyChooseUs, EditingProcess, Testimonials, Trail, ContactUs, Pricing, Hero
   },
 
 }
@@ -25,7 +26,7 @@ export default {
 <template>
   <main>
 
-    <div class="hero md:p-20 px-4 md:mt-28 mt-16">
+    <!-- <div class="hero md:p-20 px-4 md:mt-28 mt-16">
       <Navbar class="z-50" />
 
       <div class="text-center gap-8 bg-hero">
@@ -35,44 +36,88 @@ export default {
               class="text-blue-600">Acestyle</span>
             Editing
           </h1>
-          <p class="md:text-lg text-md mt-6 line-clamp-3 lg:w-[800px] mx-auto">Lorem ipsum dolor sit amet, consectetur
+          <p class="md:text-lg mb-10 text-md mt-6 line-clamp-3 lg:w-[800px] mx-auto">Lorem ipsum dolor sit amet,
+            consectetur
             adipisicing elit. Hic
             laboriosam nisi, dolor, qui minima incidunt nam commodi facere eaque pariatur, voluptas dolores.</p>
 
-          <button class="bg-blue-700 font-medium text-white text-xs rounded-md py-4 px-6 my-4 md:my-10">
+          <router-link to="/upload"
+            class="bg-blue-700 font-medium text-white text-xs rounded-md py-4 px-6 my-4 md:my-10 mt-12">
             TRY NOW
-          </button>
+          </router-link>
         </div>
 
 
 
 
       </div>
-    </div>
+    </div> -->
 
-    <div class="md:px-16  lg:px-28  px-4 my-10 h-screen flex items-center overflow-hidden">
-      <div class="grid lg:grid-cols-2 items-center gap-12">
-        <div class="col order-2">
-          <!-- <h1 class="text-xl text-blue-700">About Us</h1> -->
-          <h1 class="md:text-6xl text-4xl">Transforming Your Words, Enhancing Your Voice</h1>
-          <p class="text-gray-600 text-sm pt-4">At AceStyle Editing, we understand the importance of clear, concise, and
-            compelling content. Our expert editors help academics, researchers, and writers refine their work, ensuring
-            precision, clarity, and impact. Let us help you express yourself better!
-          </p>
+    <Hero />
 
+    <!-- <section class="py-10 bg-white sm:py-16 lg:py-24">
+      <div class="max-w-5xl px-4 mx-auto sm:px-6 lg:px-8">
+        <div class="grid items-center md:grid-cols-2 gap-y-10 md:gap-x-20">
+          <div class="pr-12 sm:pr-0">
+            <div class="relative max-w-xs mb-12">
+              <img class="object-bottom rounded-md"
+                src="https://cdn.rareblocks.xyz/collection/celebration/images/features/4/man-eating-noodles.jpg"
+                alt="" />
 
-          <button class="bg-blue-600 text-white text-xs rounded-full py-3 px-6 my-4">
-            CONTACT US
-          </button>
-        </div>
-        <div class="col order-1">
-          <img src="../assets/img/44938.jpg" class="w-full rounded-lg" alt="" srcset="">
+              <img class="absolute origin-bottom-right scale-75 rounded-md -bottom-12 -right-12"
+                src="https://cdn.rareblocks.xyz/collection/celebration/images/features/4/smiling-businessman.jpg"
+                alt="" />
+            </div>
+          </div>
+
+          <div>
+            <h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl"></h2>
+            <p class="mt-4 text-base leading-relaxed text-gray-600"></p>
+          </div>
         </div>
       </div>
-    </div>
+    </section> -->
+
+    <section class="py-10 bg-gray-50 sm:py-16 lg:py-24">
+      <div class="max-w-6xl px-4 mx-auto sm:px-6 lg:px-8">
+        <div class="grid items-center grid-cols-1 gap-y-6 md:grid-cols-2 md:gap-x-20">
+          <div class="">
+            <h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">Transforming Your Words,
+              Enhancing Your Voice.</h2>
+            <p class="mt-4 text-base leading-relaxed text-gray-600">At AceStyle Editing, we understand the
+              importance of clear, concise, and
+              compelling content. Our expert editors help academics, researchers, and writers refine their work,
+              ensuring
+              precision, clarity, and impact. Let us help you express yourself better!</p>
+          </div>
+
+          <div class="relative pl-20 pr-6 sm:pl-6 md:px-0">
+            <div class="relative w-full max-w-xs mt-4 mb-10 ml-auto">
+              <img class="ml-auto" src="https://cdn.rareblocks.xyz/collection/celebration/images/features/1/person.jpg"
+                alt="" />
+
+              <img class="absolute -top-4 -left-12"
+                src="https://cdn.rareblocks.xyz/collection/celebration/images/features/1/wavey-lines.svg" alt="" />
+
+              <div class="absolute -bottom-10 -left-16">
+                <div class="bg-blue-400">
+                  <div class="px-8 py-10">
+                    <span class="block text-4xl font-bold text-black lg:text-5xl"> 100% </span>
+                    <span class="block mt-2 text-base leading-tight text-black">Improved Readability<br />Enhanced
+                      Quality</span>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
 
-    <div class="md:px-16 lg:px-28 px-4 my-10 flex items-center">
+
+    <div id="about" class="md:px-16 lg:px-28 px-4 my-10 flex items-center">
       <div class="grid lg:grid-cols-2 gap-12">
         <div class="col">
           <Collage />
@@ -86,31 +131,33 @@ export default {
             achieve publishing success.
 
           </p>
-
-
-          <button class="bg-blue-600 text-white text-xs rounded-full py-3 px-6 my-4">
-            CONTACT US
-          </button>
         </div>
       </div>
     </div>
 
-    <div class="mt-48">
+    <div id="service" class="mt-8 sm:mt-20">
       <WhyChooseUs />
     </div>
+
 
     <div class="md:my-20">
       <EditingProcess />
     </div>
 
-    <div class="trial">
+    <div id="trynow" class="trial">
       <Trail />
     </div>
+
+    <div id="pricing" class="pricing">
+      <Pricing />
+    </div>
+
+
     <div class="testimonial mb-12">
       <Testimonials />
     </div>
 
-    <div class="contact">
+    <div id="contact" class="contact">
       <ContactUs />
     </div>
 

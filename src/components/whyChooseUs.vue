@@ -3,8 +3,8 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
             <!-- Left column with image -->
             <div class="relative">
-                <img src="../assets/img/why.jpg" alt="Why Choose Us Image"
-                    class="w-full h-auto object-cover" />
+                <img src="../assets/img/why-us.jpg" alt="Why Choose Us Image"
+                    class="w-full h-auto object-cover rounded-md" />
                 <!-- Overlay on image for readability -->
                 <div class="absolute "></div>
             </div>
@@ -16,8 +16,7 @@
                     <ul class="space-y-6">
                         <li class="flex items-start space-x-4">
                             <div class="text-green-500">
-                                <Icon icon="icon-park-twotone:check-one" width="1.5em" height="1.5em"
-                                    class="text-green-600" />
+                                <Icon icon="mingcute:check-2-fill" width="1.5em" height="1.5em"  style="color: #2309ec" />
                             </div>
                             <div>
                                 <h3 class="text-xl font-medium text-gray-700">
@@ -27,8 +26,7 @@
                         </li>
                         <li class="flex items-start space-x-4">
                             <div class="text-green-500">
-                                <Icon icon="icon-park-twotone:check-one" width="1.5em" height="1.5em"
-                                    class="text-green-600" />
+                                <Icon icon="mingcute:check-2-fill" width="1.5em" height="1.5em"  style="color: #2309ec" />
                             </div>
                             <div>
                                 <h3 class="text-xl font-medium text-gray-700">Rigorous quality control and attention to
@@ -37,8 +35,7 @@
                         </li>
                         <li class="flex items-start space-x-4">
                             <div class="text-green-500">
-                                <Icon icon="icon-park-twotone:check-one" width="1.5em" height="1.5em"
-                                    class="text-green-600" />
+                                <Icon icon="mingcute:check-2-fill" width="1.5em" height="1.5em"  style="color: #2309ec" />
                             </div>
                             <div>
                                 <h3 class="text-xl font-medium text-gray-700">Fast turnaround times without compromising
@@ -47,8 +44,7 @@
                         </li>
                         <li class="flex items-start space-x-4">
                             <div class="text-green-500">
-                                <Icon icon="icon-park-twotone:check-one" width="1.5em" height="1.5em"
-                                    class="text-green-600" />
+                                <Icon icon="mingcute:check-2-fill" width="1.5em" height="1.5em"  style="color: #2309ec" />
                             </div>
                             <div>
                                 <h3 class="text-xl font-medium text-gray-700">Confidential and secure document handling
@@ -57,8 +53,7 @@
                         </li>
                         <li class="flex items-start space-x-4">
                             <div class="text-green-500">
-                                <Icon icon="icon-park-twotone:check-one" width="1.5em" height="1.5em"
-                                    class="text-green-600" />
+                                <Icon icon="mingcute:check-2-fill" width="1.5em" height="1.5em"  style="color: #2309ec" />
                             </div>
                             <div>
                                 <h3 class="text-xl font-medium text-gray-700">Competitive pricing and flexible packages
