@@ -126,7 +126,7 @@ export default {
           <!-- <h1 class="text-xl text-blue-700">About Us</h1> -->
           <h1 class="md:text-6xl text-4xl">Your Partner in Academic Excellence</h1>
           <p class="text-gray-600 text-sm pt-4">
-            As a leading proofreading and editing service, we cater to students, researchers, and professionals across
+            As a leading proofreading and editing company, we cater to students, researchers, and professionals across
             various fields. Our mission is to help you communicate your ideas effectively, meet academic standards, and
             achieve publishing success.
 

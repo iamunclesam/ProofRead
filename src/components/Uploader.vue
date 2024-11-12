@@ -67,7 +67,7 @@
                     <!-- Submit Button -->
                     <div class="md:col-span-2">
                         <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded" :disabled="isUploading">
-                            {{ isUploading ? 'Uploading...' : 'Submit ($' + selectedPrice + ')' }}
+                            {{ isUploading ? 'Uploading...' : 'Submit' }}
                         </button>
                     </div>
                 </form>
@@ -104,10 +104,11 @@ export default {
                 documentFile: null,
             },
             editingServices: [
-                { name: 'Basic Editing', value: 'basic', price: 500 },
-                { name: 'Premium Editing', value: 'premium', price: 1500 },
-                { name: 'Elite Editing', value: 'elite', price: 3000 },
-                { name: 'One-off Editing', value: 'one-off', price: "30/words " },
+                { name: 'One-off Editing', value: 'one-off', price: "30/ 1000 words " },
+                { name: 'Basic Editing', value: 'basic', price:" 500 / 5 pages" },
+                { name: 'Premium Editing', value: 'premium', price: "1500 / 20 pages" },
+                { name: 'Elite Editing', value: 'elite', price: "3000 / 50 pages" },
+
             ],
             uploadProgress: 0,
             isUploading: false,
