@@ -1,9 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
-import { auth, googleProvider, signInWithPopup } from '@/firebase';
+import { auth, signInWithRedirect, getRedirectResult } from '@/firebase';
 import { GoogleAuthProvider } from 'firebase/auth';
-
-
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,27 +25,42 @@ const router = createRouter({
   ],
 });
 
+// Handle the redirect result after the user is redirected back
+async function handleRedirect() {
+  try {
+    const result = await getRedirectResult(auth);
+    if (result) {
+      console.log('User signed in via redirect:', result.user);
+    } else {
+      console.log('No user signed in');
+    }
+  } catch (error) {
+    console.error('Error during redirect sign-in:', error);
+  }
+}
+
 // Navigation guard
 router.beforeEach(async (to, from, next) => {
   const user = auth.currentUser;
 
-  // Check if the route requires authentication
+  // First, handle the redirect result (if applicable)
+  if (!user) {
+    await handleRedirect(); // Check if user signed in via redirect
+  }
+
+  // Now check if the route requires authentication
   if (to.meta.requiresAuth) {
-    // If the user is not logged in, attempt to sign them in
-    if (!user) {
+    if (!auth.currentUser) {
       try {
-        // Initiate the Google sign-in only if the user is not signed in
+        // If the user is not logged in, initiate Google sign-in redirect
         const provider = new GoogleAuthProvider();
-        const result = await signInWithPopup(auth, provider);
-        console.log('User signed in:', result.user); 
-        next();
+        await signInWithRedirect(auth, provider); // Redirect to Google sign-in page
       } catch (error) {
         console.error('Authentication error:', error);
         next({ name: 'home' }); // Redirect to home if authentication fails
       }
     } else {
-      // If user is already signed in, just proceed to the next route
-      next();
+      next(); // If user is already signed in, proceed to the next route
     }
   } else {
     next(); // Proceed without authentication check
