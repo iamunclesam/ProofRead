@@ -50,9 +50,7 @@
                                 class="text-base font-semibold text-black transition-all duration-200 hover:text-opacity-80">
                                 Contact</a>
 
-                            <a href="/upload" title=""
-                                class="inline-flex items-center justify-center px-5 py-2.5 text-base font-semibold transition-all duration-200 rounded-full bg-blue-600 text-white hover:bg-blue-700 focus:bg-blue-600"
-                                role="button">Upload Document</a>
+                            <AuthButton />
                                 <div v-if="user" class="flex items-center space-x-4">
                             <img v-if="user.photoURL" :src="user.photoURL" alt="User Avatar"
                                 class="w-12 h-12 rounded-full object-cover" />
@@ -171,6 +169,7 @@
 
 <script>
 import { auth } from '@/firebase';
+import AuthButton from './AuthButton.vue';
 // import { RouterLink } from 'vue-router';
 
 
@@ -180,6 +179,9 @@ export default {
             isMenuOpen: false,
             user: null
         };
+    },
+    components: {
+        AuthButton
     },
     methods: {
         toggleMenu() {
