@@ -1,7 +1,7 @@
 <template>
     <div class="max-w-6xl mx-auto">
 
-        <main class="flex flex-col md:flex-row justify-between md:p-10 p-4 py-4 gap-8 ">
+        <form class="flex flex-col md:flex-row justify-between md:p-10 p-4 py-4 gap-8 ">
 
             <!-- Left Side: Form for Document Upload -->
             <section class="w-full md:w-1/2">
@@ -10,7 +10,7 @@
                     Fill out the form and upload your document for proofreading and review.
                 </p>
 
-                <form @submit.prevent="submitForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- Full Name Input -->
                     <div class="md:col-span-1">
                         <label for="fullName" class="block text-gray-700">Full Name</label>
@@ -28,23 +28,11 @@
                     </div>
 
                     <!-- Document Title Input -->
-                    <div class="md:col-span-1">
+                    <div class="md:col-span-2">
                         <label for="documentTitle" class="block text-gray-700">Document Title</label>
                         <input v-model="formData.documentTitle" type="text" id="documentTitle"
                             class="mt-1 block w-full border border-gray-300 rounded-lg p-2"
                             placeholder="Enter document title" required />
-                    </div>
-
-                    <!-- Desired Editing Service Dropdown -->
-                    <div class="md:col-span-1">
-                        <label for="editingService" class="block text-gray-700">Desired Editing Service</label>
-                        <select v-model="formData.editingService" id="editingService"
-                            class="mt-1 block w-full border border-gray-300 rounded-lg p-2" required>
-                            <option disabled value="">Select a service</option>
-                            <option v-for="(service, index) in editingServices" :key="index" :value="service.value">
-                                {{ service.name }} - ${{ service.price }}
-                            </option>
-                        </select>
                     </div>
 
                     <!-- Additional Requests -->
@@ -63,22 +51,81 @@
                             class="mt-1 block w-full border border-gray-300 rounded-lg p-2" accept=".doc,.docx,.pdf"
                             required />
                     </div>
-
-                    <!-- Submit Button -->
-                    <div class="md:col-span-2">
-                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded" :disabled="isUploading">
-                            {{ isUploading ? 'Uploading...' : 'Submit' }}
-                        </button>
-                    </div>
                 </form>
-
             </section>
 
             <!-- Right Side: Illustration -->
-            <section class="w-full md:w-1/2 hidden md:flex justify-center items-center  rounded">
-                <img src="../assets/img/neww.png" alt="Upload Illustration" class="w-full h-auto" />
+            <section class="w-full md:w-1/2 rounded">
+                <h1 class="text-md text-gray-500 mb-2">Select Preferred Package</h1>
+                <div class="md:col-span-2">
+                    <label
+                        class="flex justify-between  space-x-2 cursor-pointer border border-gray-200 py-4 px-4 mb-4 rounded w-full transition-colors duration-300 delay-100"
+                        @click="selectPayment('BasicPlan', 'Basic Package - $800')">
+
+                        <div class="">
+                            <span class="text-gray-700 font-medium">Starter Package</span>
+                            <h1 class="text-2xl">$800 - 3 days</h1>
+                            <p class="text-sm text-gray-500"> Up to 30 thousand words of editing and proofreading</p>
+
+                        </div>
+                        <input type="radio" name="payment"
+                            class="form-radio peer rounded-full h-4 w-4 text-green-600 text-green-600 focus:ring-green-500"
+                            :checked="formData.selectedPayment === 'BasicPlan'"  
+                            />
+                    </label>
+                </div>
+
+                <div class="md:col-span-2">
+                    <label
+                        class="flex justify-between  space-x-2 cursor-pointer border border-gray-200 py-4 px-4 mb-4 rounded w-full transition-colors duration-300 delay-100"
+                        @click="selectPayment('Premium', 'Premium Package - $1500')">
+
+                        <div class="">
+                            <span class="text-gray-700 font-medium">Premium Package</span>
+                            <h1 class="text-2xl">$1,500 - 7 days</h1>
+                            <p class="text-sm text-gray-500">Up to 60 thousand words
+                                of editing and proofreading</p>
+
+                        </div>
+                        <input type="radio" name="payment"
+                            class="form-radio peer rounded-full h-4 w-4 text-green-600 text-green-600 focus:ring-green-500"
+                            :checked="formData.selectedPayment === 'Premium'"  
+                        />
+                    </label>
+                </div>
+
+                <div class="md:col-span-2">
+                    <label
+                        class="flex justify-between  space-x-2 cursor-pointer border border-gray-200 py-4 px-4 mb-4 rounded w-full transition-colors duration-300 delay-100"
+                        @click="selectPayment('Elite', 'Elite - $3000')">
+
+                        <div class="">
+                            <span class="text-gray-700 font-medium">Elite Package</span>
+                            <h1 class="text-2xl">$3,000 - 1 Month </h1>
+                            <p class="text-sm text-gray-500"> Unlimited editing and proofreading for a month</p>
+
+                        </div>
+                        <input type="radio" name="payment"
+                            class="form-radio peer rounded-full h-4 w-4 text-green-600 text-green-600 focus:ring-green-500"
+                            :checked="formData.selectedPayment === 'Elite'"  
+                             />
+                    </label>
+                </div>
+
+
+                <!-- Submit Button -->
+                <div class="md:col-span-2">
+                    <button @click.prevent="submitForm" :disabled="!isFormValid || isUploading"
+                        class="px-4 py-2 rounded text-white transition-all duration-300" :class="{
+                            'bg-blue-500 hover:bg-blue-600 cursor-pointer': isFormValid && !isUploading,
+                            'bg-gray-300 cursor-not-allowed': !isFormValid || isUploading
+                        }">
+                        {{ isUploading ? 'Uploading...' : 'Submit' }}
+                    </button>
+
+                </div>
             </section>
-        </main>
+        </form>
     </div>
 
 
@@ -102,22 +149,18 @@ export default {
                 editingService: '',
                 additionalRequests: '',
                 documentFile: null,
+                selectedPayment: ''
             },
-            editingServices: [
-                { name: 'One-off Editing', value: 'one-off', price: "30/ 1000 words " },
-                { name: 'Basic Editing', value: 'basic', price:" 500 / 5 pages" },
-                { name: 'Premium Editing', value: 'premium', price: "1500 / 20 pages" },
-                { name: 'Elite Editing', value: 'elite', price: "3000 / 50 pages" },
-
-            ],
             uploadProgress: 0,
             isUploading: false,
         };
     },
     computed: {
-        selectedPrice() {
-            const selectedService = this.editingServices.find(service => service.value === this.formData.editingService);
-            return selectedService ? selectedService.price : 0;
+       
+
+        isFormValid() {
+            const { fullName, email, documentTitle, documentFile } = this.formData;
+            return fullName && email && documentTitle && documentFile; // Ensure all required fields are filled
         }
     },
     methods: {
@@ -127,8 +170,16 @@ export default {
                 this.formData.documentFile = file;
             }
         },
+        selectPayment(paymentMethod, servicePlan) {
+            this.formData.editingService = servicePlan;
+            this.formData.selectedPayment = paymentMethod
+            console.log(this.editingService);
+            
+        },
         async submitForm() {
             const { fullName, email, documentTitle, editingService, documentFile } = this.formData;
+            console.log(this.formData);
+            
             if (!fullName || !email || !documentTitle || !editingService || !documentFile) {
                 alert('Please fill out all fields and upload a document.');
                 return;

@@ -5,8 +5,9 @@
                 <div class="px-4 mx-auto sm:px-6 lg:px-8">
                     <div class="flex items-center justify-between h-16 lg:h-20">
                         <div class="flex-shrink-0">
-                            <a href="#" title="" class="flex">
-                                <h1 class="text-black font-bold md:text-white text-xl">AceStyle</h1>
+                            <a href="#" title="" class="flex items-center gap-2">
+                                <img src="../assets/img/logo.png" class="w-12 h-12 object-contain" alt="">
+                                <h1 class="text-black font-bold md:text-white text-2xl">AceStyle</h1>
                             </a>
                         </div>
 
@@ -28,8 +29,11 @@
                             </svg>
                         </button>
 
+                        
+                      
 
                         <div class="hidden ml-auto lg:flex lg:items-center lg:justify-center lg:space-x-10">
+                          
                             <a href="#" title=""
                                 class="text-base font-semibold text-black transition-all duration-200 hover:text-opacity-80">
                                 Home</a>
@@ -49,6 +53,11 @@
                             <a href="/upload" title=""
                                 class="inline-flex items-center justify-center px-5 py-2.5 text-base font-semibold transition-all duration-200 rounded-full bg-blue-600 text-white hover:bg-blue-700 focus:bg-blue-600"
                                 role="button">Upload Document</a>
+                                <div v-if="user" class="flex items-center space-x-4">
+                            <img v-if="user.photoURL" :src="user.photoURL" alt="User Avatar"
+                                class="w-12 h-12 rounded-full object-cover" />
+                            <!-- <span class="text-black font-semibold">{{ user.displayName || 'User' }}</span> -->
+                        </div>
                         </div>
                     </div>
                     <!-- Mobile Menu -->
@@ -87,9 +96,8 @@
 
                         <div
                             class="relative px-4 pt-24 pb-16 text-center sm:px-6 md:px-24 2xl:px-32 lg:py-24 lg:text-left">
-                            <h1 class="text-4xl font-bold text-black sm:text-6xl xl:text-8xl">
-                                Get it done.<br />
-                                Fast, Easy.
+                            <h1 class="text-5xl mt-8 font-bold text-black sm:text-6xl xl:text-7xl">
+                                Get it Done: Fast, Easy, & Error-Free!
                             </h1>
                             <p class="mt-8 text-xl text-black">We help make your writing polished and professional.
                                 Elevate your manuscripts with thorough proofreading and expert review.</p>
@@ -135,7 +143,8 @@
                             <img class="object-cover w-full h-full scale-150" src="../assets/img/heero.jpg" alt="" />
                         </div>
 
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                        <!-- Overlay -->
+                        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
 
                         <div class="absolute bottom-0 left-0">
                             <div class="p-4 sm:p-6 lg:p-8">
@@ -161,19 +170,28 @@
 </template>
 
 <script>
+import { auth } from '@/firebase';
 // import { RouterLink } from 'vue-router';
+
 
 export default {
     data() {
         return {
-            isMenuOpen: false
+            isMenuOpen: false,
+            user: null
         };
     },
     methods: {
         toggleMenu() {
             this.isMenuOpen = !this.isMenuOpen;
         }
-    }
+    },
+    created() {
+    // Listen for authentication state changes
+    auth.onAuthStateChanged((user) => {
+      this.user = user;
+    });
+  },
 }
 </script>
 

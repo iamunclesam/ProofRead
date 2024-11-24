@@ -16,8 +16,8 @@
                     </div>
                 </div>
 
-                <h2 class="mt-8 text-3xl font-bold leading-tight text-black lg:mt-12 sm:text-4xl lg:text-5xl">Join <span
-                        class="border-b-8 border-blue-300">100+</span> Authors</h2>
+                <h2 class="mt-8 text-3xl font-bold leading-tight text-black lg:mt-12 sm:text-4xl lg:text-5xl">Join over<span
+                        class="border-b-8 border-blue-300"> 2000+</span> Authors</h2>
                 <p class="max-w-xl mx-auto mt-6 text-xl text-gray-600 md:mt-10">Refine your writing with expert feedback
                     and meticulous proofreading. Achieve clarity and quality with Acestyle.</p>
 

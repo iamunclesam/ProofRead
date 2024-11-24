@@ -2,7 +2,7 @@
     <section class="py-12 bg-white sm:py-16 lg:py-20 xl:py-24">
         <div class="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
             <div class="max-w-2xl mx-auto text-center">
-                <p class="text-base font-semibold text-blue-600">100+ Happy AceStyle Users</p>
+                <p class="text-base font-semibold text-blue-600">2050+ Happy AceStyle Users</p>
                 <h2 class="mt-6 text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl lg:mt-8">
                     Don't just take our words</h2>
             </div>

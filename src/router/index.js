@@ -1,5 +1,9 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+import HomeView from '../views/HomeView.vue';
+import { auth, googleProvider, signInWithPopup } from '@/firebase';
+import { GoogleAuthProvider } from 'firebase/auth';
+
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,25 +11,47 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
     },
     {
       path: '/upload',
       name: 'upload',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/Upload.vue')
+      component: () => import('../views/Upload.vue'),
+      meta: { requiresAuth: true }, // Add meta field for authentication
     },
     {
       path: '/about',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/About.vue')
+      component: () => import('../views/About.vue'),
     },
-  ]
-})
+  ],
+});
 
-export default router
+// Navigation guard
+router.beforeEach(async (to, from, next) => {
+  const user = auth.currentUser;
+
+  // Check if the route requires authentication
+  if (to.meta.requiresAuth) {
+    // If the user is not logged in, attempt to sign them in
+    if (!user) {
+      try {
+        // Initiate the Google sign-in only if the user is not signed in
+        const provider = new GoogleAuthProvider();
+        const result = await signInWithPopup(auth, provider);
+        console.log('User signed in:', result.user); 
+        next();
+      } catch (error) {
+        console.error('Authentication error:', error);
+        next({ name: 'home' }); // Redirect to home if authentication fails
+      }
+    } else {
+      // If user is already signed in, just proceed to the next route
+      next();
+    }
+  } else {
+    next(); // Proceed without authentication check
+  }
+});
+
+export default router;
