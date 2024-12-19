@@ -104,7 +104,7 @@
                             <form action="#" method="POST"
                                 class="max-w-xl mx-auto mt-8 lg:mx-0 sm:bg-transparent lg:mt-12 rounded-xl">
                                 <div
-                                    class="p-4 sm:p-2 sm:border-2 sm:border-transparent sm:rounded-full sm:focus-within:border-orange-500 sm:focus-within:ring-1 sm:focus-within:ring-orange-500">
+                                    class="p-4 sm:p-2 sm:border-2 sm:border-transparent sm:rounded-full">
                                     <div class="flex flex-col items-start sm:flex-row">
                                         <!-- <div class="flex-1 w-full min-w-0">
                                             <div class="relative text-gray-400 focus-within:text-gray-600">

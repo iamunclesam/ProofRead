@@ -6,8 +6,23 @@
                 <!-- <p class="max-w-md mx-auto mt-4 text-base leading-relaxed text-gray-600">Try free for 30 Days</p> -->
             </div>
 
-            <div class="grid grid-cols-1 gap-6 mx-auto mt-8 text-center md:max-w-8xl sm:grid-cols-3 md:gap-8 sm:mt-16">
-              
+            <div class="grid grid-cols-1 gap-6 mx-auto mt-8 text-center md:max-w-8xl sm:grid-cols-4 md:gap-8 sm:mt-16">
+
+                <div class="relative overflow-hidden bg-transparent border-2 border-gray-100 rounded-md">
+
+                    <div class="px-4 py-5 lg:p-8">
+                        <p class="text-lg font-medium text-gray-500">Oneoff Package</p>
+                        <p class="mt-4 text-6xl font-bold text-black">$30</p>
+                        <p class="mt-4 text-2xl font-medium text-gray-500">Per 1000 Words</p>
+                        <ul class="flex flex-col mt-8 space-y-1">
+                            <li class="text-base font-medium text-gray-900 lg:text-md text-center">
+                                Ideal for small tasks or a one-time editing need
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
                 <div class="relative overflow-hidden bg-transparent border-2 border-gray-100 rounded-md">
 
                     <div class="px-4 py-5 lg:p-8">

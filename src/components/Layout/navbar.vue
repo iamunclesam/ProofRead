@@ -34,7 +34,7 @@ export default {
             this.isMenuOpen = !this.isMenuOpen;
         },
         goBack() {
-            this.$router.go(-1)
+            this.$router.push('/')
         }
     },
 };

@@ -60,22 +60,6 @@
                 <div class="md:col-span-2">
                     <label
                         class="flex justify-between  space-x-2 cursor-pointer border border-gray-200 py-4 px-4 mb-4 rounded w-full transition-colors duration-300 delay-100"
-                        @click="selectPayment('OneOffPlan', 'Oneoff - $30')">
-
-                        <div class="">
-                            <span class="text-gray-700 font-medium">Oneoff Package</span>
-                            <h1 class="text-2xl">$30 - 1000 words</h1>
-                            <p class="text-sm text-gray-500">Preferable for small tasks.</p>
-
-                        </div>
-                        <input type="radio" name="payment"
-                            class="form-radio peer rounded-full h-4 w-4 text-green-600 text-green-600 focus:ring-green-500"
-                            :checked="formData.selectedPayment === 'OneOffPlan'" />
-                    </label>
-                </div>
-                <div class="md:col-span-2">
-                    <label
-                        class="flex justify-between  space-x-2 cursor-pointer border border-gray-200 py-4 px-4 mb-4 rounded w-full transition-colors duration-300 delay-100"
                         @click="selectPayment('BasicPlan', 'Basic Package - $800')">
 
                         <div class="">
@@ -86,7 +70,8 @@
                         </div>
                         <input type="radio" name="payment"
                             class="form-radio peer rounded-full h-4 w-4 text-green-600 text-green-600 focus:ring-green-500"
-                            :checked="formData.selectedPayment === 'BasicPlan'" />
+                            :checked="formData.selectedPayment === 'BasicPlan'"  
+                            />
                     </label>
                 </div>
 
@@ -104,7 +89,8 @@
                         </div>
                         <input type="radio" name="payment"
                             class="form-radio peer rounded-full h-4 w-4 text-green-600 text-green-600 focus:ring-green-500"
-                            :checked="formData.selectedPayment === 'Premium'" />
+                            :checked="formData.selectedPayment === 'Premium'"  
+                        />
                     </label>
                 </div>
 
@@ -121,7 +107,8 @@
                         </div>
                         <input type="radio" name="payment"
                             class="form-radio peer rounded-full h-4 w-4 text-green-600 text-green-600 focus:ring-green-500"
-                            :checked="formData.selectedPayment === 'Elite'" />
+                            :checked="formData.selectedPayment === 'Elite'"  
+                             />
                     </label>
                 </div>
 
@@ -169,7 +156,7 @@ export default {
         };
     },
     computed: {
-
+       
 
         isFormValid() {
             const { fullName, email, documentTitle, documentFile } = this.formData;
@@ -187,12 +174,12 @@ export default {
             this.formData.editingService = servicePlan;
             this.formData.selectedPayment = paymentMethod
             console.log(this.editingService);
-
+            
         },
         async submitForm() {
             const { fullName, email, documentTitle, editingService, documentFile } = this.formData;
             console.log(this.formData);
-
+            
             if (!fullName || !email || !documentTitle || !editingService || !documentFile) {
                 alert('Please fill out all fields and upload a document.');
                 return;
@@ -200,46 +187,67 @@ export default {
 
             this.isUploading = true;
 
-            try {
-                // Convert file to Base64
-                const fileBase64 = await this.convertFileToBase64(documentFile);
+            // Upload file to Firebase Storage
+            const storageRef = ref(storage, `documents/${documentFile.name}`);
+            const uploadTask = uploadBytesResumable(storageRef, documentFile);
 
-                // Send email with file attachment using EmailJS
-                await this.sendEmail(fullName, email, documentTitle, editingService, this.formData.additionalRequests, fileBase64, documentFile.name);
+            uploadTask.on(
+                'state_changed',
+                (snapshot) => {
+                    this.uploadProgress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                },
+                (error) => {
+                    console.error("Upload failed:", error);
+                    this.isUploading = false;
+                },
+                async () => {
+                    const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
 
-                // Save user data (excluding file) to Firestore
-                await addDoc(collection(db, 'documents'), {
-                    fullName,
-                    email,
-                    timestamp: new Date(),
-                });
+                    // Save document details to Firestore
+                    try {
+                        await addDoc(collection(db, 'documents'), {
+                            fullName,
+                            email,
+                            documentTitle,
+                            editingService,
+                            additionalRequests: this.formData.additionalRequests,
+                            fileURL: downloadURL,
+                            timestamp: new Date(),
+                        });
 
-                toast.success("Document submitted successfully!", {
-                    autoClose: 1000,
-                    position: toast.POSITION.TOP_RIGHT,
-                });
+                        // Send email to the user
+                        await this.sendEmail(fullName, email, documentTitle, editingService, this.formData.additionalRequests, downloadURL);
 
-                this.resetForm();
-                this.$router.push('/thank-you');
-            } catch (error) {
-                console.error('Error processing submission:', error);
-                toast.warn("Something went wrong!", {
-                    autoClose: 1000,
-                    position: toast.POSITION.TOP_RIGHT,
-                });
-            } finally {
-                this.isUploading = false;
-            }
+                        // Send email to the admin
+                        // await this.sendEmailToAdmin(fullName, documentTitle, editingService, downloadURL);
+
+                        toast.success("Document submitted successfully!", {
+                            autoClose: 1000,
+                            position: toast.POSITION.TOP_RIGHT,
+                        });
+
+                        this.resetForm();
+                        this.$router.push('/thank-you')
+                    } catch (error) {
+                        console.error('Error saving document to Firestore:', error);
+                        toast.warn("Something went wrong!", {
+                            autoClose: 1000,
+                            position: toast.POSITION.TOP_RIGHT,
+                        });
+                    } finally {
+                        this.isUploading = false;
+                    }
+                }
+            );
         },
 
-
-        async sendEmail(fullName, email, documentTitle, editingService, additionalInfo, fileBase64, fileName) {
+        async sendEmail(fullName, email, documentTitle, editingService, additionalInfo, downloadURL) {
             const templateParams = {
                 to_name: fullName,
-                message: `A new document has been uploaded successfully.\n\nDetails:\n- Document Title: ${documentTitle}\n- Editing Service: ${editingService}\n- Additional Info: ${additionalInfo}`,
+                message: `A new document has been uploaded successfully.\n\nDetails:\n- Document Title: ${documentTitle}\n- Editing Service: ${editingService}\n- 
+                Additional Info: ${additionalInfo}\n-
+                Download Link: ${downloadURL}`,
                 reply_to: email,
-                document_file: fileBase64, // Attach the Base64 file
-                document_file_name: fileName, // Name of the uploaded file
             };
 
             try {
@@ -247,20 +255,8 @@ export default {
                 console.log('User email sent successfully');
             } catch (error) {
                 console.error('Error sending user email:', error);
-                throw error; // Propagate error for handling in submitForm
             }
         },
-
-        convertFileToBase64(file) {
-            return new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.readAsDataURL(file);
-                reader.onload = () => resolve(reader.result.split(',')[1]); // Extract only Base64 part
-                reader.onerror = (error) => reject(error);
-            });
-        },
-
-
 
 
         resetForm() {
