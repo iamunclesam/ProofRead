@@ -125,7 +125,7 @@
                                     </div>
                                 </div>
                             </form>
-                            <p class="mt-5 text-base text-black">Get started instantly with no signup barriers.</p>
+                        
 
                         </div>
 

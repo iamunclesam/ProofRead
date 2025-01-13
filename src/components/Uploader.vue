@@ -189,6 +189,7 @@ export default {
             console.log(this.editingService);
 
         },
+
         async submitForm() {
             const { fullName, email, documentTitle, editingService, documentFile } = this.formData;
             console.log(this.formData);
@@ -236,18 +237,38 @@ export default {
         async sendEmail(fullName, email, documentTitle, editingService, additionalInfo, fileBase64, fileName) {
             const templateParams = {
                 to_name: fullName,
-                message: `A new document has been uploaded successfully.\n\nDetails:\n- Document Title: ${documentTitle}\n- Editing Service: ${editingService}\n- Additional Info: ${additionalInfo}`,
+                message: `
+            Hello ${fullName},
+
+            A new document has been uploaded successfully.
+
+            Here are the details:
+            - **Document Title**: ${documentTitle}
+            - **Editing Service**: ${editingService}
+            - **Additional Information**: ${additionalInfo}
+            - **Your Email**: ${email}
+
+            If you have any questions, feel free to reply to this email.
+
+            Best regards,
+            Your Team
+        `,
                 reply_to: email,
                 document_file: fileBase64, // Attach the Base64 file
                 document_file_name: fileName, // Name of the uploaded file
             };
 
             try {
-                await emailjs.send('service_zcxbref', 'template_py6qafm', templateParams, 'jtE-tiuDnIEkR3Z2G');
-                console.log('User email sent successfully');
+                const response = await emailjs.send(
+                    'service_6gwvl8t',  // Replace with your actual service ID
+                    'template_5xqltin', // Replace with your actual template ID
+                    templateParams,
+                    'Qtw5nBRHLdqgr1bmK' // Replace with your actual public key
+                );
+                console.log('Email sent successfully:', response);
             } catch (error) {
-                console.error('Error sending user email:', error);
-                throw error; // Propagate error for handling in submitForm
+                console.error('Error sending email:', error);
+                throw error; // Ensure error propagates for further handling
             }
         },
 

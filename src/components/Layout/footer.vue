@@ -28,8 +28,8 @@
                     <h4 class="text-xl font-semibold mb-4">Contact Information</h4>
                     <ul class="space-y-2">
                         <li class="text-gray-400">1712 Pioneer Ave, Cheyenne, WY 82001</li>
-                        <li class="text-gray-400">+123 456 7890</li>
-                        <li><a href="mailto:info@acestyle.com"
+                        <li class="text-gray-400">+1 (307) 670-7834</li>
+                        <li><a href="mailto:info@acestyleediting.com"
                                 class="text-gray-400 hover:text-white transition">info@acestyleediting.com</a></li>
                     </ul>
 
